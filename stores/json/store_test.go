@@ -3,8 +3,8 @@ package json
 import (
 	"testing"
 
-	"github.com/getsops/sops/v3"
-	"github.com/getsops/sops/v3/config"
+	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv/config"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/getsops/sops/v3/logging"
+	"github.com/AetherVoxSanctum/envv/logging"
 	"github.com/google/go-cmp/cmp"
 	vault "github.com/hashicorp/vault/api"
 

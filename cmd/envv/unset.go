@@ -3,27 +3,25 @@ package main
 import (
 	"fmt"
 
-	"github.com/getsops/sops/v3"
-	"github.com/getsops/sops/v3/cmd/sops/codes"
-	"github.com/getsops/sops/v3/cmd/sops/common"
-	"github.com/getsops/sops/v3/keyservice"
+	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv/cmd/sops/codes"
+	"github.com/AetherVoxSanctum/envv/cmd/sops/common"
+	"github.com/AetherVoxSanctum/envv/keyservice"
 )
 
-type setOpts struct {
+type unsetOpts struct {
 	Cipher          sops.Cipher
 	InputStore      sops.Store
 	OutputStore     sops.Store
 	InputPath       string
 	IgnoreMAC       bool
 	TreePath        []interface{}
-	Value           interface{}
 	KeyServices     []keyservice.KeyServiceClient
 	DecryptionOrder []string
 }
 
-func set(opts setOpts) ([]byte, bool, error) {
+func unset(opts unsetOpts) ([]byte, error) {
 	// Load the file
-	// TODO: Issue #173: if the file does not exist, create it with the contents passed in as opts.Value
 	tree, err := common.LoadEncryptedFileWithBugFixes(common.GenericDecryptOpts{
 		Cipher:      opts.Cipher,
 		InputStore:  opts.InputStore,
@@ -32,7 +30,7 @@ func set(opts setOpts) ([]byte, bool, error) {
 		KeyServices: opts.KeyServices,
 	})
 	if err != nil {
-		return nil, false, err
+		return nil, err
 	}
 
 	// Decrypt the file
@@ -44,23 +42,26 @@ func set(opts setOpts) ([]byte, bool, error) {
 		DecryptionOrder: opts.DecryptionOrder,
 	})
 	if err != nil {
-		return nil, false, err
+		return nil, err
 	}
 
-	// Set the value
-	var changed bool
-	tree.Branches[0], changed = tree.Branches[0].Set(opts.TreePath, opts.Value)
+	// Unset the value
+	newBranch, err := tree.Branches[0].Unset(opts.TreePath)
+	if err != nil {
+		return nil, err
+	}
+	tree.Branches[0] = newBranch
 
 	err = common.EncryptTree(common.EncryptTreeOpts{
 		DataKey: dataKey, Tree: tree, Cipher: opts.Cipher,
 	})
 	if err != nil {
-		return nil, false, err
+		return nil, err
 	}
 
 	encryptedFile, err := opts.OutputStore.EmitEncryptedFile(*tree)
 	if err != nil {
-		return nil, false, common.NewExitError(fmt.Sprintf("Could not marshal tree: %s", err), codes.ErrorDumpingTree)
+		return nil, common.NewExitError(fmt.Sprintf("Could not marshal tree: %s", err), codes.ErrorDumpingTree)
 	}
-	return encryptedFile, changed, err
+	return encryptedFile, err
 }

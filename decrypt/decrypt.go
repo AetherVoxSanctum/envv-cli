@@ -2,17 +2,17 @@
 Package decrypt is the external API other Go programs can use to decrypt SOPS files. It is the only package in SOPS with
 a stable API.
 */
-package decrypt // import "github.com/getsops/sops/v3/decrypt"
+package decrypt // import "github.com/AetherVoxSanctum/envv/decrypt"
 
 import (
 	"fmt"
 	"os"
 	"time"
 
-	"github.com/getsops/sops/v3/aes"
-	"github.com/getsops/sops/v3/cmd/sops/common"
-	. "github.com/getsops/sops/v3/cmd/sops/formats" // Re-export
-	"github.com/getsops/sops/v3/config"
+	"github.com/AetherVoxSanctum/envv/aes"
+	"github.com/AetherVoxSanctum/envv/cmd/sops/common"
+	. "github.com/AetherVoxSanctum/envv/cmd/sops/formats" // Re-export
+	"github.com/AetherVoxSanctum/envv/config"
 )
 
 // File is a wrapper around Data that reads a local encrypted

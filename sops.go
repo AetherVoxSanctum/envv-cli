@@ -2,10 +2,10 @@
 Package sops manages JSON, YAML and BINARY documents to be encrypted or decrypted.
 
 This package should not be used directly. Instead, Sops users should install the
-command line client via `go get -u github.com/getsops/sops/v3/cmd/sops`, or use the
-decryption helper provided at `github.com/getsops/sops/v3/decrypt`.
+command line client via `go get -u github.com/AetherVoxSanctum/envv/cmd/sops`, or use the
+decryption helper provided at `github.com/AetherVoxSanctum/envv/decrypt`.
 
-We do not guarantee API stability for any package other than `github.com/getsops/sops/v3/decrypt`.
+We do not guarantee API stability for any package other than `github.com/AetherVoxSanctum/envv/decrypt`.
 
 A Sops document is a Tree composed of a data branch with arbitrary key/value pairs
 and a metadata branch with encryption and integrity information.
@@ -34,7 +34,7 @@ be recalculated and compared with the MAC stored in the document to verify that 
 fraudulent changes have been applied. The MAC covers keys and values as well as their
 ordering.
 */
-package sops // import "github.com/getsops/sops/v3"
+package sops // import "github.com/AetherVoxSanctum/envv"
 
 import (
 	"crypto/rand"
@@ -51,13 +51,13 @@ import (
 	"github.com/sirupsen/logrus"
 	"golang.org/x/net/context"
 
-	"github.com/getsops/sops/v3/age"
-	"github.com/getsops/sops/v3/audit"
-	"github.com/getsops/sops/v3/keys"
-	"github.com/getsops/sops/v3/keyservice"
-	"github.com/getsops/sops/v3/logging"
-	"github.com/getsops/sops/v3/pgp"
-	"github.com/getsops/sops/v3/shamir"
+	"github.com/AetherVoxSanctum/envv/age"
+	"github.com/AetherVoxSanctum/envv/audit"
+	"github.com/AetherVoxSanctum/envv/keys"
+	"github.com/AetherVoxSanctum/envv/keyservice"
+	"github.com/AetherVoxSanctum/envv/logging"
+	"github.com/AetherVoxSanctum/envv/pgp"
+	"github.com/AetherVoxSanctum/envv/shamir"
 )
 
 // DefaultUnencryptedSuffix is the default suffix a TreeItem key has to end with for sops to leave its Value unencrypted

@@ -14,13 +14,13 @@ import (
 
 	"fmt"
 
-	"github.com/getsops/sops/v3"
-	"github.com/getsops/sops/v3/age"
-	"github.com/getsops/sops/v3/azkv"
-	"github.com/getsops/sops/v3/gcpkms"
-	"github.com/getsops/sops/v3/hcvault"
-	"github.com/getsops/sops/v3/kms"
-	"github.com/getsops/sops/v3/pgp"
+	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv/age"
+	"github.com/AetherVoxSanctum/envv/azkv"
+	"github.com/AetherVoxSanctum/envv/gcpkms"
+	"github.com/AetherVoxSanctum/envv/hcvault"
+	"github.com/AetherVoxSanctum/envv/kms"
+	"github.com/AetherVoxSanctum/envv/pgp"
 )
 
 const (

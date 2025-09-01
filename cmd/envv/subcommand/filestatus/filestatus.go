@@ -3,8 +3,8 @@ package filestatus
 import (
 	"fmt"
 
-	"github.com/getsops/sops/v3"
-	"github.com/getsops/sops/v3/cmd/sops/common"
+	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv/cmd/sops/common"
 )
 
 // Opts represent the input options for FileStatus

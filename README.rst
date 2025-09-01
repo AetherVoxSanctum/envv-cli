@@ -9,15 +9,15 @@ formats and encrypts with AWS KMS, GCP KMS, Azure Key Vault, age, and PGP.
 
 ------------
 
-.. image:: https://pkg.go.dev/badge/github.com/getsops/sops/v3.svg
-    :target: https://pkg.go.dev/github.com/getsops/sops/v3
+.. image:: https://pkg.go.dev/badge/github.com/AetherVoxSanctum/envv/v3.svg
+    :target: https://pkg.go.dev/github.com/AetherVoxSanctum/envv/v3
 
 Download
 --------
 
 Stable release
 ~~~~~~~~~~~~~~
-Binaries and packages of the latest stable release are available at `https://github.com/getsops/sops/releases <https://github.com/getsops/sops/releases>`_.
+Binaries and packages of the latest stable release are available at `https://github.com/AetherVoxSanctum/envv/releases <https://github.com/AetherVoxSanctum/envv/releases>`_.
 
 Development branch
 ~~~~~~~~~~~~~~~~~~
@@ -25,9 +25,9 @@ For the adventurous, unstable features are available in the `main` branch, which
 
 .. code:: bash
 
-    $ mkdir -p $GOPATH/src/github.com/getsops/sops/
-    $ git clone https://github.com/getsops/sops.git $GOPATH/src/github.com/getsops/sops/
-    $ cd $GOPATH/src/github.com/getsops/sops/
+    $ mkdir -p $GOPATH/src/github.com/AetherVoxSanctum/envv/
+    $ git clone https://github.com/AetherVoxSanctum/envv.git $GOPATH/src/github.com/AetherVoxSanctum/envv/
+    $ cd $GOPATH/src/github.com/AetherVoxSanctum/envv/
     $ make install
 
 (requires Go >= 1.19)
@@ -43,7 +43,7 @@ If you don't have Go installed, set it up with:
 
 Or whatever variation of the above fits your system and shell.
 
-To use **SOPS** as a library, take a look at the `decrypt package <https://pkg.go.dev/github.com/getsops/sops/v3/decrypt>`_.
+To use **SOPS** as a library, take a look at the `decrypt package <https://pkg.go.dev/github.com/AetherVoxSanctum/envv/v3/decrypt>`_.
 
 .. sectnum::
 .. contents:: Table of Contents
@@ -111,7 +111,7 @@ not set, in vim, nano, or vi.
 Keep in mind that SOPS will wait for the editor to exit, and then try to reencrypt
 the file. Some GUI editors (atom, sublime) spawn a child process and then exit
 immediately. They usually have an option to wait for the main editor window to be
-closed before exiting. See `#127 <https://github.com/getsops/sops/issues/127>`_ for
+closed before exiting. See `#127 <https://github.com/AetherVoxSanctum/envv/issues/127>`_ for
 more information.
 
 The resulting encrypted file looks like this:
@@ -182,7 +182,7 @@ Test with the dev PGP key
 If you want to test **SOPS** without having to do a bunch of setup, you can use
 the example files and pgp key provided with the repository::
 
-    $ git clone https://github.com/getsops/sops.git
+    $ git clone https://github.com/AetherVoxSanctum/envv.git
     $ cd sops
     $ gpg --import pgp/sops_functional_tests_key.asc
     $ sops edit example.yaml
@@ -797,7 +797,7 @@ found, the filename of the file being created is compared with the filename
 regexes of the configuration file. The first regex that matches is selected,
 and its KMS and PGP keys are used to encrypt the file. It should be noted that
 the looking up of ``.sops.yaml`` is from the working directory (CWD) instead of
-the directory of the encrypting file (see `Issue 242 <https://github.com/getsops/sops/issues/242>`_).
+the directory of the encrypting file (see `Issue 242 <https://github.com/AetherVoxSanctum/envv/issues/242>`_).
 
 The ``path_regex`` checks the path of the encrypting file relative to the ``.sops.yaml`` config file. Here is another example:
 
@@ -1430,7 +1430,7 @@ But this one will work just fine:
 Examples
 --------
 
-Take a look into the `examples folder <https://github.com/getsops/sops/tree/main/examples>`_ for detailed use cases of SOPS in a CI environment. The section below describes specific tips for common use cases.
+Take a look into the `examples folder <https://github.com/AetherVoxSanctum/envv/tree/main/examples>`_ for detailed use cases of SOPS in a CI environment. The section below describes specific tips for common use cases.
 
 Creating a new file
 ~~~~~~~~~~~~~~~~~~~
@@ -1929,7 +1929,7 @@ file format introduced in **1.0**.
 Security
 --------
 
-Please report any security issues privately using `GitHub's advisory form <https://github.com/getsops/sops/security/advisories>`_.
+Please report any security issues privately using `GitHub's advisory form <https://github.com/AetherVoxSanctum/envv/security/advisories>`_.
 
 License
 -------
@@ -1948,7 +1948,7 @@ The original authors of the project were:
 * Julien Vehent @jvehent
 
 Furthermore, the project has been carried for a long time by AJ Bahnken @ajvb,
-and had not been possible without the contributions of numerous `contributors <https://github.com/getsops/sops/graphs/contributors>`_.
+and had not been possible without the contributions of numerous `contributors <https://github.com/AetherVoxSanctum/envv/graphs/contributors>`_.
 
 Credits
 -------

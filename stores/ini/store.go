@@ -1,4 +1,4 @@
-package ini //import "github.com/getsops/sops/v3/stores/ini"
+package ini //import "github.com/AetherVoxSanctum/envv/stores/ini"
 
 import (
 	"bytes"
@@ -8,9 +8,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/getsops/sops/v3"
-	"github.com/getsops/sops/v3/config"
-	"github.com/getsops/sops/v3/stores"
+	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv/config"
+	"github.com/AetherVoxSanctum/envv/stores"
 	"gopkg.in/ini.v1"
 )
 

@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/getsops/sops/v3/logging"
+	"github.com/AetherVoxSanctum/envv/logging"
 
 	"github.com/sirupsen/logrus"
 )

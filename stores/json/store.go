@@ -1,4 +1,4 @@
-package json //import "github.com/getsops/sops/v3/stores/json"
+package json //import "github.com/AetherVoxSanctum/envv/stores/json"
 
 import (
 	"bytes"
@@ -8,9 +8,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/getsops/sops/v3"
-	"github.com/getsops/sops/v3/config"
-	"github.com/getsops/sops/v3/stores"
+	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv/config"
+	"github.com/AetherVoxSanctum/envv/stores"
 )
 
 // Store handles storage of JSON data.

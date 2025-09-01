@@ -3,27 +3,25 @@ package groups
 import (
 	"os"
 
-	"fmt"
-
-	"github.com/getsops/sops/v3"
-	"github.com/getsops/sops/v3/cmd/sops/common"
-	"github.com/getsops/sops/v3/keyservice"
+	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv/cmd/sops/common"
+	"github.com/AetherVoxSanctum/envv/keyservice"
 )
 
-// DeleteOpts are the options for deleting a key group from a SOPS file
-type DeleteOpts struct {
+// AddOpts are the options for adding a key group to a SOPS file
+type AddOpts struct {
 	InputPath       string
 	InputStore      sops.Store
 	OutputStore     sops.Store
-	Group           uint
+	Group           sops.KeyGroup
 	GroupThreshold  int
 	InPlace         bool
 	KeyServices     []keyservice.KeyServiceClient
 	DecryptionOrder []string
 }
 
-// Delete deletes a key group from a SOPS file
-func Delete(opts DeleteOpts) error {
+// Add adds a key group to a SOPS file
+func Add(opts AddOpts) error {
 	tree, err := common.LoadEncryptedFile(opts.InputStore, opts.InputPath)
 	if err != nil {
 		return err
@@ -32,18 +30,11 @@ func Delete(opts DeleteOpts) error {
 	if err != nil {
 		return err
 	}
-	tree.Metadata.KeyGroups = append(tree.Metadata.KeyGroups[:opts.Group], tree.Metadata.KeyGroups[opts.Group+1:]...)
+	tree.Metadata.KeyGroups = append(tree.Metadata.KeyGroups, opts.Group)
 
 	if opts.GroupThreshold != 0 {
 		tree.Metadata.ShamirThreshold = opts.GroupThreshold
 	}
-
-	if len(tree.Metadata.KeyGroups) < tree.Metadata.ShamirThreshold {
-		return fmt.Errorf("removing this key group will make the Shamir threshold impossible to satisfy: "+
-			"Shamir threshold is %d, but we only have %d key groups", tree.Metadata.ShamirThreshold,
-			len(tree.Metadata.KeyGroups))
-	}
-
 	tree.Metadata.UpdateMasterKeysWithKeyServices(dataKey, opts.KeyServices)
 	output, err := opts.OutputStore.EmitEncryptedFile(*tree)
 	if err != nil {

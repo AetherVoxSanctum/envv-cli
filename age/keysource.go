@@ -18,7 +18,7 @@ import (
 	"filippo.io/age/plugin"
 	"github.com/sirupsen/logrus"
 
-	"github.com/getsops/sops/v3/logging"
+	"github.com/AetherVoxSanctum/envv/logging"
 	"github.com/google/shlex"
 )
 

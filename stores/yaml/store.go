@@ -1,4 +1,4 @@
-package yaml //import "github.com/getsops/sops/v3/stores/yaml"
+package yaml //import "github.com/AetherVoxSanctum/envv/stores/yaml"
 
 import (
 	"bytes"
@@ -7,9 +7,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/getsops/sops/v3"
-	"github.com/getsops/sops/v3/config"
-	"github.com/getsops/sops/v3/stores"
+	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv/config"
+	"github.com/AetherVoxSanctum/envv/stores"
 	"gopkg.in/yaml.v3"
 )
 

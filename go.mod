@@ -1,4 +1,4 @@
-module github.com/getsops/sops/v3
+module github.com/AetherVoxSanctum/envv
 
 go 1.23.0
 

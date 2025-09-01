@@ -1,7 +1,7 @@
 /*
 Package config provides a way to find and load SOPS configuration files
 */
-package config //import "github.com/getsops/sops/v3/config"
+package config //import "github.com/AetherVoxSanctum/envv/config"
 
 import (
 	"fmt"
@@ -11,14 +11,14 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/getsops/sops/v3"
-	"github.com/getsops/sops/v3/age"
-	"github.com/getsops/sops/v3/azkv"
-	"github.com/getsops/sops/v3/gcpkms"
-	"github.com/getsops/sops/v3/hcvault"
-	"github.com/getsops/sops/v3/kms"
-	"github.com/getsops/sops/v3/pgp"
-	"github.com/getsops/sops/v3/publish"
+	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv/age"
+	"github.com/AetherVoxSanctum/envv/azkv"
+	"github.com/AetherVoxSanctum/envv/gcpkms"
+	"github.com/AetherVoxSanctum/envv/hcvault"
+	"github.com/AetherVoxSanctum/envv/kms"
+	"github.com/AetherVoxSanctum/envv/pgp"
+	"github.com/AetherVoxSanctum/envv/publish"
 	"gopkg.in/yaml.v3"
 )
 
