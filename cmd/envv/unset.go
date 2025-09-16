@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/cmd/sops/codes"
-	"github.com/AetherVoxSanctum/envv/cmd/sops/common"
+	"github.com/AetherVoxSanctum/envv/cmd/envv/codes"
+	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
 	"github.com/AetherVoxSanctum/envv/keyservice"
 )
 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/cmd/sops/common"
+	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
 )
 
 // Opts represent the input options for FileStatus

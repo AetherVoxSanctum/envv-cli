@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/cmd/sops/common"
+	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
 	"github.com/AetherVoxSanctum/envv/keyservice"
 )
 

@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/AetherVoxSanctum/envv/aes"
-	"github.com/AetherVoxSanctum/envv/cmd/sops/common"
-	. "github.com/AetherVoxSanctum/envv/cmd/sops/formats" // Re-export
+	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
+	. "github.com/AetherVoxSanctum/envv/cmd/envv/formats" // Re-export
 	"github.com/AetherVoxSanctum/envv/config"
 )
 

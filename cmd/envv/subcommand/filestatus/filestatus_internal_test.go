@@ -4,7 +4,7 @@ import (
 	"path"
 	"testing"
 
-	"github.com/AetherVoxSanctum/envv/cmd/sops/common"
+	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
 	"github.com/AetherVoxSanctum/envv/config"
 	"github.com/stretchr/testify/require"
 )

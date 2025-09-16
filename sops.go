@@ -2,7 +2,7 @@
 Package sops manages JSON, YAML and BINARY documents to be encrypted or decrypted.
 
 This package should not be used directly. Instead, Sops users should install the
-command line client via `go get -u github.com/AetherVoxSanctum/envv/cmd/sops`, or use the
+command line client via `go get -u github.com/AetherVoxSanctum/envv/cmd/envv`, or use the
 decryption helper provided at `github.com/AetherVoxSanctum/envv/decrypt`.
 
 We do not guarantee API stability for any package other than `github.com/AetherVoxSanctum/envv/decrypt`.

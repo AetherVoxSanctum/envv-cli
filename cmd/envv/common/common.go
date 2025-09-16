@@ -9,8 +9,8 @@ import (
 
 	"github.com/fatih/color"
 	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/cmd/sops/codes"
-	. "github.com/AetherVoxSanctum/envv/cmd/sops/formats"
+	"github.com/AetherVoxSanctum/envv/cmd/envv/codes"
+	. "github.com/AetherVoxSanctum/envv/cmd/envv/formats"
 	"github.com/AetherVoxSanctum/envv/config"
 	"github.com/AetherVoxSanctum/envv/keys"
 	"github.com/AetherVoxSanctum/envv/keyservice"
