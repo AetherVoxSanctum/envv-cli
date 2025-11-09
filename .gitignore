@@ -3,3 +3,6 @@ dist/
 functional-tests/sops
 vendor/
 profile.out
+.claude/settings.local.json
+.idea
+demo/node_modules/
