@@ -1,0 +1,95 @@
+# envv configuration for team-based access control
+# This defines who can access which environment variables
+
+version: "1.0"
+
+# Define team roles and their permissions
+roles:
+  engineer:
+    description: "Full-stack engineers with complete system access"
+    permissions:
+      - analytics.*
+      - payments.*
+      - backend.*
+    secrets:
+      - ANALYTICS_KEY_GOOGLE
+      - ANALYTICS_KEY_MIXPANEL
+      - STRIPE_API_KEY
+      - BACKEND_SECRET_KEY
+
+  designer:
+    description: "UI/UX designers who need analytics for user behavior analysis"
+    permissions:
+      - analytics.*
+    secrets:
+      - ANALYTICS_KEY_GOOGLE
+      - ANALYTICS_KEY_MIXPANEL
+
+  content_marketer:
+    description: "Content and marketing team members who track campaign performance"
+    permissions:
+      - analytics.*
+    secrets:
+      - ANALYTICS_KEY_GOOGLE
+      - ANALYTICS_KEY_MIXPANEL
+
+# Environment variable groups
+secret_groups:
+  analytics:
+    description: "Analytics and tracking keys"
+    variables:
+      - ANALYTICS_KEY_GOOGLE
+      - ANALYTICS_KEY_MIXPANEL
+
+  payments:
+    description: "Payment processing credentials"
+    variables:
+      - STRIPE_API_KEY
+
+  backend:
+    description: "Backend service secrets"
+    variables:
+      - BACKEND_SECRET_KEY
+
+# Access matrix
+access_matrix:
+  ANALYTICS_KEY_GOOGLE:
+    roles: [engineer, designer, content_marketer]
+    description: "Google Analytics tracking ID"
+
+  ANALYTICS_KEY_MIXPANEL:
+    roles: [engineer, designer, content_marketer]
+    description: "Mixpanel analytics token"
+
+  STRIPE_API_KEY:
+    roles: [engineer]
+    description: "Stripe payment processing API key"
+
+  BACKEND_SECRET_KEY:
+    roles: [engineer]
+    description: "Backend service authentication secret"
+
+# Audit settings
+audit:
+  enabled: true
+  log_access: true
+  log_changes: true
+  retention_days: 90
+
+# Rotation policies
+rotation:
+  ANALYTICS_KEY_GOOGLE:
+    schedule: "quarterly"
+    notify_roles: [engineer, designer, content_marketer]
+
+  ANALYTICS_KEY_MIXPANEL:
+    schedule: "quarterly"
+    notify_roles: [engineer, designer, content_marketer]
+
+  STRIPE_API_KEY:
+    schedule: "monthly"
+    notify_roles: [engineer]
+
+  BACKEND_SECRET_KEY:
+    schedule: "weekly"
+    notify_roles: [engineer]
