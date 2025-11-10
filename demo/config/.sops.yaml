@@ -1,0 +1,34 @@
+# SOPS configuration for envv demo
+# This defines how secrets are encrypted and who has access
+
+creation_rules:
+  # Rules for environment files
+  - path_regex: \.env\..*
+    # In a real scenario, you'd use actual PGP keys or cloud KMS
+    # This is a demo configuration showing the structure
+    key_groups:
+      - pgp:
+          # Engineer - full access to all secrets
+          - FPR_ENGINEER_KEY_ID
+          # Designer - access to analytics only (handled in envv layer)
+          - FPR_DESIGNER_KEY_ID
+          # Content Marketer - access to analytics only (handled in envv layer)
+          - FPR_CONTENT_MARKETER_KEY_ID
+
+  # Rules for specific secret types
+  - path_regex: analytics\.env$
+    key_groups:
+      - pgp:
+          - FPR_ENGINEER_KEY_ID
+          - FPR_DESIGNER_KEY_ID
+          - FPR_CONTENT_MARKETER_KEY_ID
+
+  - path_regex: payments\.env$
+    key_groups:
+      - pgp:
+          - FPR_ENGINEER_KEY_ID
+
+  - path_regex: backend\.env$
+    key_groups:
+      - pgp:
+          - FPR_ENGINEER_KEY_ID
