@@ -35,10 +35,18 @@ fi
 
 # Check for /Users/wdr paths
 echo -n "  Checking for /Users/wdr paths... "
-if grep -r "/Users/wdr" --exclude-dir=.git --exclude="verify-cleanup.sh" . 2>/dev/null | grep -v "Binary file" > /dev/null; then
+if grep -r "/Users/wdr" --exclude-dir=.git \
+    --exclude="verify-cleanup.sh" \
+    --exclude="cleanup-sensitive-data.sh" \
+    --exclude="CLEANUP_INSTRUCTIONS.md" \
+    . 2>/dev/null | grep -v "Binary file" > /dev/null; then
     echo -e "${RED}✗ FOUND${NC}"
     echo "    Hardcoded paths still present:"
-    grep -r "/Users/wdr" --exclude-dir=.git --exclude="verify-cleanup.sh" . 2>/dev/null | grep -v "Binary file" | head -5
+    grep -r "/Users/wdr" --exclude-dir=.git \
+        --exclude="verify-cleanup.sh" \
+        --exclude="cleanup-sensitive-data.sh" \
+        --exclude="CLEANUP_INSTRUCTIONS.md" \
+        . 2>/dev/null | grep -v "Binary file" | head -5
     ISSUES_FOUND=$((ISSUES_FOUND + 1))
 else
     echo -e "${GREEN}✓ CLEAN${NC}"
@@ -46,10 +54,20 @@ fi
 
 # Check for suspicious Stripe keys
 echo -n "  Checking for real-looking Stripe keys... "
-if grep -r "sk_live_4eC39HqLyjWDarjtT1zdp7dc\|sk_live_4242424242424242" --exclude-dir=.git --exclude="verify-cleanup.sh" . 2>/dev/null > /dev/null; then
+if grep -r "sk_live_4eC39HqLyjWDarjtT1zdp7dc\|sk_live_4242424242424242" \
+    --exclude-dir=.git \
+    --exclude="verify-cleanup.sh" \
+    --exclude="cleanup-sensitive-data.sh" \
+    --exclude="CLEANUP_INSTRUCTIONS.md" \
+    . 2>/dev/null > /dev/null; then
     echo -e "${YELLOW}⚠ FOUND${NC}"
     echo "    Demo Stripe keys should be sanitized:"
-    grep -r "sk_live_4eC39HqLyjWDarjtT1zdp7dc\|sk_live_4242424242424242" --exclude-dir=.git --exclude="verify-cleanup.sh" . 2>/dev/null | head -3
+    grep -r "sk_live_4eC39HqLyjWDarjtT1zdp7dc\|sk_live_4242424242424242" \
+        --exclude-dir=.git \
+        --exclude="verify-cleanup.sh" \
+        --exclude="cleanup-sensitive-data.sh" \
+        --exclude="CLEANUP_INSTRUCTIONS.md" \
+        . 2>/dev/null | head -3
     ISSUES_FOUND=$((ISSUES_FOUND + 1))
 else
     echo -e "${GREEN}✓ CLEAN${NC}"
