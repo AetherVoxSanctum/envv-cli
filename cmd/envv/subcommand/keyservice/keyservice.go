@@ -6,8 +6,8 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/AetherVoxSanctum/envv/keyservice"
-	"github.com/AetherVoxSanctum/envv/logging"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keyservice"
+	"github.com/AetherVoxSanctum/envv-cli/v3/logging"
 
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"

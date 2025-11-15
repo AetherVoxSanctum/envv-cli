@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/audit"
-	"github.com/AetherVoxSanctum/envv/cmd/envv/codes"
-	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
-	"github.com/AetherVoxSanctum/envv/keys"
-	"github.com/AetherVoxSanctum/envv/keyservice"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/audit"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/codes"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/common"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keys"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keyservice"
 )
 
 type rotateOpts struct {

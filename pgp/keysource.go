@@ -4,7 +4,7 @@ interface that encrypts and decrypts the data key by first trying with the
 github.com/ProtonMail/go-crypto/openpgp package and if that fails, by calling
 the "gpg" binary.
 */
-package pgp // import "github.com/AetherVoxSanctum/envv/pgp"
+package pgp // import "github.com/AetherVoxSanctum/envv-cli/v3/pgp"
 
 import (
 	"bytes"
@@ -26,7 +26,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"golang.org/x/term"
 
-	"github.com/AetherVoxSanctum/envv/logging"
+	"github.com/AetherVoxSanctum/envv-cli/v3/logging"
 )
 
 const (

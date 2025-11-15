@@ -3,8 +3,8 @@ package filestatus
 import (
 	"fmt"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/common"
 )
 
 // Opts represent the input options for FileStatus

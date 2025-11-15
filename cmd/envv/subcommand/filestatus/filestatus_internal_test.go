@@ -4,8 +4,8 @@ import (
 	"path"
 	"testing"
 
-	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
-	"github.com/AetherVoxSanctum/envv/config"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/common"
+	"github.com/AetherVoxSanctum/envv-cli/v3/config"
 	"github.com/stretchr/testify/require"
 )
 

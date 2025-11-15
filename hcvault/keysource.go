@@ -20,7 +20,7 @@ import (
 	"github.com/mitchellh/go-homedir"
 	"github.com/sirupsen/logrus"
 
-	"github.com/AetherVoxSanctum/envv/logging"
+	"github.com/AetherVoxSanctum/envv-cli/v3/logging"
 )
 
 const (

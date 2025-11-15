@@ -1,4 +1,4 @@
-package gcpkms // import "github.com/AetherVoxSanctum/envv/gcpkms"
+package gcpkms // import "github.com/AetherVoxSanctum/envv-cli/v3/gcpkms"
 
 import (
 	"context"
@@ -16,7 +16,7 @@ import (
 	"google.golang.org/api/option"
 	"google.golang.org/grpc"
 
-	"github.com/AetherVoxSanctum/envv/logging"
+	"github.com/AetherVoxSanctum/envv-cli/v3/logging"
 )
 
 const (

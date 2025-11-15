@@ -3,9 +3,9 @@ package groups
 import (
 	"os"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
-	"github.com/AetherVoxSanctum/envv/keyservice"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/common"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keyservice"
 )
 
 // AddOpts are the options for adding a key group to a SOPS file

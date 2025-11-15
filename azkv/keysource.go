@@ -1,9 +1,9 @@
 /*
-Package azkv contains an implementation of the github.com/AetherVoxSanctum/envv/keys.MasterKey
+Package azkv contains an implementation of the github.com/AetherVoxSanctum/envv-cli/v3/keys.MasterKey
 interface that encrypts and decrypts the data key using Azure Key Vault with the
 Azure Key Vault Keys client module for Go.
 */
-package azkv // import "github.com/AetherVoxSanctum/envv/azkv"
+package azkv // import "github.com/AetherVoxSanctum/envv-cli/v3/azkv"
 
 import (
 	"context"
@@ -19,7 +19,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys"
 	"github.com/sirupsen/logrus"
 
-	"github.com/AetherVoxSanctum/envv/logging"
+	"github.com/AetherVoxSanctum/envv-cli/v3/logging"
 )
 
 const (

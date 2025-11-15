@@ -1,7 +1,7 @@
 /*
 Package aes defines a Cipher that uses 256-bit AES-GCM authenticated encryption to encrypt values the SOPS tree.
 */
-package aes //import "github.com/AetherVoxSanctum/envv/aes"
+package aes //import "github.com/AetherVoxSanctum/envv-cli/v3/aes"
 
 import (
 	cryptoaes "crypto/aes"
@@ -13,8 +13,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/logging"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/logging"
 	"github.com/sirupsen/logrus"
 )
 

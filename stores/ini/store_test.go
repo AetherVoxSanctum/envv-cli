@@ -3,7 +3,7 @@ package ini
 import (
 	"testing"
 
-	"github.com/AetherVoxSanctum/envv"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -1,4 +1,4 @@
-module github.com/AetherVoxSanctum/envv
+module github.com/AetherVoxSanctum/envv-cli/v3
 
 go 1.24.0
 

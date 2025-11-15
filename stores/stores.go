@@ -14,13 +14,13 @@ import (
 
 	"fmt"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/age"
-	"github.com/AetherVoxSanctum/envv/azkv"
-	"github.com/AetherVoxSanctum/envv/gcpkms"
-	"github.com/AetherVoxSanctum/envv/hcvault"
-	"github.com/AetherVoxSanctum/envv/kms"
-	"github.com/AetherVoxSanctum/envv/pgp"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/age"
+	"github.com/AetherVoxSanctum/envv-cli/v3/azkv"
+	"github.com/AetherVoxSanctum/envv-cli/v3/gcpkms"
+	"github.com/AetherVoxSanctum/envv-cli/v3/hcvault"
+	"github.com/AetherVoxSanctum/envv-cli/v3/kms"
+	"github.com/AetherVoxSanctum/envv-cli/v3/pgp"
 )
 
 const (

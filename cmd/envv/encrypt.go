@@ -6,12 +6,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/cmd/envv/codes"
-	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
-	"github.com/AetherVoxSanctum/envv/keyservice"
-	"github.com/AetherVoxSanctum/envv/stores"
-	"github.com/AetherVoxSanctum/envv/version"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/codes"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/common"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keyservice"
+	"github.com/AetherVoxSanctum/envv-cli/v3/stores"
+	"github.com/AetherVoxSanctum/envv-cli/v3/version"
 	"github.com/mitchellh/go-wordwrap"
 )
 
