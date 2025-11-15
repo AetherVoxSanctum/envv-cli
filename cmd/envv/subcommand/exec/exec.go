@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/AetherVoxSanctum/envv/logging"
+	"github.com/AetherVoxSanctum/envv-cli/v3/logging"
 
 	"github.com/sirupsen/logrus"
 )

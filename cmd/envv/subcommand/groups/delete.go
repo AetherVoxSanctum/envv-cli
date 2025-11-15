@@ -5,9 +5,9 @@ import (
 
 	"fmt"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
-	"github.com/AetherVoxSanctum/envv/keyservice"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/common"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keyservice"
 )
 
 // DeleteOpts are the options for deleting a key group from a SOPS file

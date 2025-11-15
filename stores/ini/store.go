@@ -1,4 +1,4 @@
-package ini //import "github.com/AetherVoxSanctum/envv/stores/ini"
+package ini //import "github.com/AetherVoxSanctum/envv-cli/v3/stores/ini"
 
 import (
 	"bytes"
@@ -8,9 +8,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/config"
-	"github.com/AetherVoxSanctum/envv/stores"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/config"
+	"github.com/AetherVoxSanctum/envv-cli/v3/stores"
 	"gopkg.in/ini.v1"
 )
 

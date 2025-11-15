@@ -1,4 +1,4 @@
-package dotenv //import "github.com/AetherVoxSanctum/envv/stores/dotenv"
+package dotenv //import "github.com/AetherVoxSanctum/envv-cli/v3/stores/dotenv"
 
 import (
 	"bytes"
@@ -6,9 +6,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/config"
-	"github.com/AetherVoxSanctum/envv/stores"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/config"
+	"github.com/AetherVoxSanctum/envv-cli/v3/stores"
 )
 
 // SopsPrefix is the prefix for all metadatada entry keys

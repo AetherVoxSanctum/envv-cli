@@ -3,7 +3,7 @@ Package kms contains an implementation of the github.com/AetherVoxSanctum/envv.M
 interface that encrypts and decrypts the data key using AWS KMS with the SDK
 for Go V2.
 */
-package kms // import "github.com/AetherVoxSanctum/envv/kms"
+package kms // import "github.com/AetherVoxSanctum/envv-cli/v3/kms"
 
 import (
 	"context"
@@ -23,7 +23,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 	"github.com/sirupsen/logrus"
 
-	"github.com/AetherVoxSanctum/envv/logging"
+	"github.com/AetherVoxSanctum/envv-cli/v3/logging"
 )
 
 const (

@@ -6,7 +6,7 @@ import (
 	"path"
 	"testing"
 
-	"github.com/AetherVoxSanctum/envv/keys"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keys"
 	"github.com/stretchr/testify/assert"
 )
 

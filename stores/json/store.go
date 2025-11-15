@@ -1,4 +1,4 @@
-package json //import "github.com/AetherVoxSanctum/envv/stores/json"
+package json //import "github.com/AetherVoxSanctum/envv-cli/v3/stores/json"
 
 import (
 	"bytes"
@@ -8,9 +8,9 @@ import (
 	"io"
 	"strings"
 
-	"github.com/AetherVoxSanctum/envv"
-	"github.com/AetherVoxSanctum/envv/config"
-	"github.com/AetherVoxSanctum/envv/stores"
+	"github.com/AetherVoxSanctum/envv-cli/v3"
+	"github.com/AetherVoxSanctum/envv-cli/v3/config"
+	"github.com/AetherVoxSanctum/envv-cli/v3/stores"
 )
 
 // Store handles storage of JSON data.

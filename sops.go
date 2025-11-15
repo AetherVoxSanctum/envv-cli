@@ -2,10 +2,10 @@
 Package sops manages JSON, YAML and BINARY documents to be encrypted or decrypted.
 
 This package should not be used directly. Instead, Sops users should install the
-command line client via `go get -u github.com/AetherVoxSanctum/envv/cmd/envv`, or use the
-decryption helper provided at `github.com/AetherVoxSanctum/envv/decrypt`.
+command line client via `go get -u github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv`, or use the
+decryption helper provided at `github.com/AetherVoxSanctum/envv-cli/v3/decrypt`.
 
-We do not guarantee API stability for any package other than `github.com/AetherVoxSanctum/envv/decrypt`.
+We do not guarantee API stability for any package other than `github.com/AetherVoxSanctum/envv-cli/v3/decrypt`.
 
 A Sops document is a Tree composed of a data branch with arbitrary key/value pairs
 and a metadata branch with encryption and integrity information.
@@ -34,7 +34,7 @@ be recalculated and compared with the MAC stored in the document to verify that 
 fraudulent changes have been applied. The MAC covers keys and values as well as their
 ordering.
 */
-package sops // import "github.com/AetherVoxSanctum/envv"
+package sops // import "github.com/AetherVoxSanctum/envv-cli/v3"
 
 import (
 	"crypto/rand"
@@ -51,13 +51,13 @@ import (
 	"github.com/sirupsen/logrus"
 	"golang.org/x/net/context"
 
-	"github.com/AetherVoxSanctum/envv/age"
-	"github.com/AetherVoxSanctum/envv/audit"
-	"github.com/AetherVoxSanctum/envv/keys"
-	"github.com/AetherVoxSanctum/envv/keyservice"
-	"github.com/AetherVoxSanctum/envv/logging"
-	"github.com/AetherVoxSanctum/envv/pgp"
-	"github.com/AetherVoxSanctum/envv/shamir"
+	"github.com/AetherVoxSanctum/envv-cli/v3/age"
+	"github.com/AetherVoxSanctum/envv-cli/v3/audit"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keys"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keyservice"
+	"github.com/AetherVoxSanctum/envv-cli/v3/logging"
+	"github.com/AetherVoxSanctum/envv-cli/v3/pgp"
+	"github.com/AetherVoxSanctum/envv-cli/v3/shamir"
 )
 
 // DefaultUnencryptedSuffix is the default suffix a TreeItem key has to end with for sops to leave its Value unencrypted

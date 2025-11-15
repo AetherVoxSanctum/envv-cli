@@ -9,9 +9,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/AetherVoxSanctum/envv/age"
-	"github.com/AetherVoxSanctum/envv/hcvault"
-	"github.com/AetherVoxSanctum/envv/pgp"
+	"github.com/AetherVoxSanctum/envv-cli/v3/age"
+	"github.com/AetherVoxSanctum/envv-cli/v3/hcvault"
+	"github.com/AetherVoxSanctum/envv-cli/v3/pgp"
 )
 
 type reverseCipher struct{}

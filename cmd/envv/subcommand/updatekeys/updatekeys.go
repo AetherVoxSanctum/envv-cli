@@ -6,10 +6,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/AetherVoxSanctum/envv/cmd/envv/codes"
-	"github.com/AetherVoxSanctum/envv/cmd/envv/common"
-	"github.com/AetherVoxSanctum/envv/config"
-	"github.com/AetherVoxSanctum/envv/keyservice"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/codes"
+	"github.com/AetherVoxSanctum/envv-cli/v3/cmd/envv/common"
+	"github.com/AetherVoxSanctum/envv-cli/v3/config"
+	"github.com/AetherVoxSanctum/envv-cli/v3/keyservice"
 )
 
 // Opts represents key operation options and config
