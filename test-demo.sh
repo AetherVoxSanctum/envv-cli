@@ -71,12 +71,12 @@ setup_test_env() {
     cd "$TEST_DIR"
 
     # Copy demo files
-    cp -r /Users/wdr/dev/envv/demo/* .
+    cp -r /path/to/envv/demo/* .
 
     # Ensure envv binary exists
     if [ ! -f "$HOME/go/bin/envv" ]; then
         echo -e "${RED}envv binary not found at ~/go/bin/envv${NC}"
-        echo "Run 'make install' in /Users/wdr/dev/envv first"
+        echo "Run 'make install' in /path/to/envv first"
         exit 1
     fi
 
@@ -255,10 +255,10 @@ main() {
         echo
         echo "  Next steps:"
         echo "  1. Run the installation script:"
-        echo "     bash /Users/wdr/dev/envv/install.sh"
+        echo "     bash /path/to/envv/install.sh"
         echo
         echo "  2. Try the demo:"
-        echo "     cd /Users/wdr/dev/envv/demo"
+        echo "     cd /path/to/envv/demo"
         echo "     envv init"
         echo "     envv set STRIPE_API_KEY 'sk_live_abc123'"
         echo "     envv exec npm start"

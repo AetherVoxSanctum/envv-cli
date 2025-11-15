@@ -61,7 +61,7 @@ create_demo_secrets() {
     cat > .env << 'EOF'
 ANALYTICS_KEY_GOOGLE=GA-987654321
 ANALYTICS_KEY_MIXPANEL=mix_prod_xyz789def456
-STRIPE_API_KEY=sk_live_4eC39HqLyjWDarjtT1zdp7dc
+STRIPE_API_KEY=sk_live_EXAMPLE_demo_key_not_real
 BACKEND_SECRET_KEY=ultra-secret-backend-key-2024-prod
 PORT=3000
 EOF
