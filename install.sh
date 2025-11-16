@@ -273,12 +273,17 @@ create_demo_key() {
 
     mkdir -p "$INSTALL_DIR/keys"
 
-    # This is a demo key - in production each user would have their own
-    cat > "$INSTALL_DIR/keys/demo.agekey" << 'EOF'
-# Demo age key - DO NOT USE IN PRODUCTION
-# Public key: age1ql3z7hjy54pw3hyww5ayyfg7zqgvc7w3j2elw8zmrj2kg5sfn9aqmcac8p
-AGE-SECRET-KEY-1QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
-EOF
+    # Generate a new age key for this installation
+    # In production each user would have their own key
+    if command -v age-keygen &> /dev/null; then
+        # Generate key and capture public key
+        age-keygen -o "$INSTALL_DIR/keys/demo.agekey" 2>&1 | tee "$INSTALL_DIR/keys/demo.pub"
+        echo -e "${GREEN}✓ Demo key generated${NC}"
+    else
+        echo -e "${YELLOW}⚠ age-keygen not found. Please install age to generate encryption keys.${NC}"
+        echo "Visit: https://github.com/FiloSottile/age"
+        return 1
+    fi
 
     export SOPS_AGE_KEY_FILE="$INSTALL_DIR/keys/demo.agekey"
 

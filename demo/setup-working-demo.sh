@@ -59,10 +59,10 @@ create_demo_secrets() {
     echo -e "${BLUE}Creating demo secrets...${NC}"
 
     cat > .env << 'EOF'
-ANALYTICS_KEY_GOOGLE=GA-987654321
-ANALYTICS_KEY_MIXPANEL=mix_prod_xyz789def456
-STRIPE_API_KEY=sk_live_EXAMPLE_demo_key_not_real
-BACKEND_SECRET_KEY=ultra-secret-backend-key-2024-prod
+ANALYTICS_KEY_GOOGLE=GA-DEMO-123456789
+ANALYTICS_KEY_MIXPANEL=demo_mixpanel_key_replace_me
+STRIPE_API_KEY=sk_test_demo_replace_with_real_key
+BACKEND_SECRET_KEY=demo-backend-secret-replace-me
 PORT=3000
 EOF
 
