@@ -6,3 +6,14 @@ profile.out
 .claude/settings.local.json
 .idea
 demo/node_modules/
+
+# Environment files and secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.p12
+*.pfx
+keys/
+secrets/

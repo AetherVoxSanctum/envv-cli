@@ -83,19 +83,28 @@ setup_test_env() {
     # Set up envv command (using the actual binary)
     ENVV_BIN="$HOME/go/bin/envv"
 
-    # Create age key configuration
-    cat > .sops.yaml << 'EOF'
+    # Generate a test age key
+    if ! command -v age-keygen &> /dev/null; then
+        echo -e "${RED}age-keygen not found. Please install age.${NC}"
+        exit 1
+    fi
+
+    age-keygen -o test.agekey 2> test.pub
+    TEST_AGE_KEY=$(grep "Public key:" test.pub | cut -d' ' -f3)
+
+    # Create age key configuration with generated key
+    cat > .sops.yaml << EOF
 creation_rules:
   - path_regex: \.env.*$
-    age: age1ql3z7hjy54pw3hyww5ayyfg7zqgvc7w3j2elw8zmrj2kg5sfn9aqmcac8p
+    age: $TEST_AGE_KEY
 EOF
 
     # Create test environment file
     cat > .env << 'EOF'
-ANALYTICS_KEY_GOOGLE=GA-TEST-123456
-ANALYTICS_KEY_MIXPANEL=mix_test_abc123
-STRIPE_API_KEY=sk_test_demo_key_42
-BACKEND_SECRET_KEY=demo-backend-secret-2024
+ANALYTICS_KEY_GOOGLE=GA-TEST-XXXXXXXXX
+ANALYTICS_KEY_MIXPANEL=test_mixpanel_key_replace_me
+STRIPE_API_KEY=sk_test_replace_with_real_key
+BACKEND_SECRET_KEY=test-backend-secret-replace-me
 PORT=3000
 EOF
 
@@ -130,8 +139,8 @@ test_encryption() {
 test_decryption() {
     echo -e "${BLUE}Test Group 2: Decryption${NC}"
 
-    # Need to set age key for decryption
-    export SOPS_AGE_KEY="AGE-SECRET-KEY-1QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
+    # Use the generated age key file for decryption
+    export SOPS_AGE_KEY_FILE="$TEST_DIR/test.agekey"
 
     test_case "Decrypt encrypted file" \
         "$ENVV_BIN -d .env.encrypted 2>/dev/null | grep -q 'STRIPE_API_KEY' && echo 'decrypted'" \
