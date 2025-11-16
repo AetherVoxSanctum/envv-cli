@@ -62,7 +62,7 @@ recommended to use at least two master keys in different regions.
 
 .. code:: bash
 
-    export SOPS_KMS_ARN="arn:aws:kms:us-east-1:656532927350:key/920aff2e-c5f1-4040-943a-047fa387b27e,arn:aws:kms:ap-southeast-1:656532927350:key/9006a8aa-0fa6-4c14-930e-a2dfb916de1d"
+    export SOPS_KMS_ARN="arn:aws:kms:us-east-1:111122223333:key/example-key-id-1,arn:aws:kms:ap-southeast-1:111122223333:key/example-key-id-2"
 
 SOPS uses `aws-sdk-go-v2 <https://github.com/aws/aws-sdk-go-v2>`_ to communicate with AWS KMS. It will automatically
 read the credentials from the ``~/.aws/credentials`` file which can be created with the ``aws configure`` command.
@@ -134,10 +134,10 @@ The resulting encrypted file looks like this:
         kms:
             - created_at: 1441570389.775376
               enc: CiC....Pm1Hm
-              arn: arn:aws:kms:us-east-1:656532927350:key/920aff2e-c5f1-4040-943a-047fa387b27e
+              arn: arn:aws:kms:us-east-1:111122223333:key/example-key-id-1
             - created_at: 1441570391.925734
               enc: Ci...awNx
-              arn: arn:aws:kms:ap-southeast-1:656532927350:key/9006a8aa-0fa6-4c14-930e-a2dfb916de1d
+              arn: arn:aws:kms:ap-southeast-1:111122223333:key/example-key-id-2
         pgp:
             - fp: 85D77543B3D624B63CEA9E6DBC17301B491B3F21
               created_at: 1441570391.930042
@@ -595,7 +595,7 @@ editing:
 
     sops:
         kms:
-            - arn: arn:aws:kms:us-east-1:656532927350:key/920aff2e-c5f1-4040-943a-047fa387b27e
+            - arn: arn:aws:kms:us-east-1:111122223333:key/example-key-id-1
 
 And, similarly, to add a PGP master key, we add its fingerprint:
 
@@ -622,7 +622,7 @@ If you want to use a specific profile, you can do so with `aws_profile`:
 
     sops:
         kms:
-            - arn: arn:aws:kms:us-east-1:656532927350:key/920aff2e-c5f1-4040-943a-047fa387b27e
+            - arn: arn:aws:kms:us-east-1:111122223333:key/example-key-id-1
               aws_profile: foo
 
 If no AWS profile is set, default credentials will be used.
@@ -654,7 +654,7 @@ must assume alongside its ARN, as follows:
 
     sops:
         kms:
-            - arn: arn:aws:kms:us-east-1:656532927350:key/920aff2e-c5f1-4040-943a-047fa387b27e
+            - arn: arn:aws:kms:us-east-1:111122223333:key/example-key-id-1
               role: arn:aws:iam::927034868273:role/sops-dev-xyz
 
 The role must have permission to call Encrypt and Decrypt using KMS. An example
@@ -1517,13 +1517,7 @@ values, like keys, without needing an extra parser.
 
     $ sops decrypt --extract '["app2"]["key"]' ~/git/svc/sops/example.yaml
     -----BEGIN RSA PRIVATE KEY-----
-    MIIBPAIBAAJBAPTMNIyHuZtpLYc7VsHQtwOkWYobkUblmHWRmbXzlAX6K8tMf3Wf
-    ImcbNkqAKnELzFAPSBeEMhrBN0PyOC9lYlMCAwEAAQJBALXD4sjuBn1E7Y9aGiMz
-    bJEBuZJ4wbhYxomVoQKfaCu+kH80uLFZKoSz85/ySauWE8LgZcMLIBoiXNhDKfQL
-    vHECIQD6tCG9NMFWor69kgbX8vK5Y+QL+kRq+9HK6yZ9a+hsLQIhAPn4Ie6HGTjw
-    fHSTXWZpGSan7NwTkIu4U5q2SlLjcZh/AiEA78NYRRBwGwAYNUqzutGBqyXKUl4u
-    Erb0xAEyVV7e8J0CIQC8VBY8f8yg+Y7Kxbw4zDYGyb3KkXL10YorpeuZR4LuQQIg
-    bKGPkMM4w5blyE1tqGN0T7sJwEx+EUOgacRNqM2ljVA=
+    [REDACTED FOR SECURITY - ACTUAL PRIVATE KEY WOULD APPEAR HERE]
     -----END RSA PRIVATE KEY-----
 
 The tree path syntax uses regular python dictionary syntax, without the
@@ -1695,7 +1689,7 @@ For KMS:
         kms:
             - enc: CiC6yCOtzsnFhkfdIslYZ0bAf//gYLYCmIu87B3sy/5yYxKnAQEBAQB4usgjrc7JxYZH3SLJWGdGwH//4GC2ApiLvOwd7Mv+cmMAAAB+MHwGCSqGSIb3DQEHBqBvMG0CAQAwaAYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAyGdRODuYMHbA8Ozj8CARCAO7opMolPJUmBXd39Zlp0L2H9fzMKidHm1vvaF6nNFq0ClRY7FlIZmTm4JfnOebPseffiXFn9tG8cq7oi
               enc_ts: 1439568549.245995
-              arn: arn:aws:kms:us-east-1:656532927350:key/920aff2e-c5f1-4040-943a-047fa387b27e
+              arn: arn:aws:kms:us-east-1:111122223333:key/example-key-id-1
 
 For PGP:
 
