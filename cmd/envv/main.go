@@ -1624,6 +1624,11 @@ func main() {
 				return nil
 			},
 		},
+		// envv SaaS integration commands
+		authCommand(),
+		orgCommand(),
+		projectCommand(),
+		secretsCommand(),
 	}
 	app.Flags = append([]cli.Flag{
 		cli.BoolFlag{
