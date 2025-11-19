@@ -134,3 +134,53 @@ GOBIN=$$(dirname $(1)) go install $(2) ;\
 touch $(1)-$(3) ;\
 }
 endef
+
+# envv SaaS CLI targets
+.PHONY: build-envv
+build-envv:
+	@echo "Building envv CLI with SaaS integration..."
+	$(GO) build -o envv ./cmd/envv
+	@echo "✓ Built: ./envv"
+
+.PHONY: install-envv
+install-envv: build-envv
+	@echo "Installing envv to /usr/local/bin..."
+	sudo cp envv /usr/local/bin/
+	sudo chmod +x /usr/local/bin/envv
+	@echo "✓ Installed: /usr/local/bin/envv"
+
+.PHONY: install-envv-user
+install-envv-user: build-envv
+	@echo "Installing envv to ~/.local/bin..."
+	mkdir -p ~/.local/bin
+	cp envv ~/.local/bin/
+	chmod +x ~/.local/bin/envv
+	@echo "✓ Installed: ~/.local/bin/envv"
+	@echo ""
+	@echo "Make sure ~/.local/bin is in your PATH:"
+	@echo "  export PATH=\"\$$HOME/.local/bin:\$$PATH\""
+
+.PHONY: check-envv-deps
+check-envv-deps:
+	@echo "Checking envv SaaS dependencies..."
+	@command -v sops >/dev/null 2>&1 && echo "✓ sops is installed" || { echo "✗ sops is NOT installed"; echo "  Install: https://github.com/getsops/sops#install"; exit 1; }
+	@command -v age-keygen >/dev/null 2>&1 && echo "✓ age is installed" || { echo "✗ age is NOT installed"; echo "  Install: https://github.com/FiloSottile/age#installation"; exit 1; }
+	@echo ""
+	@echo "All dependencies are installed!"
+
+.PHONY: quickstart-envv
+quickstart-envv: install-envv-user check-envv-deps
+	@echo ""
+	@echo "=========================================="
+	@echo "envv CLI is ready!"
+	@echo "=========================================="
+	@echo ""
+	@echo "Next steps:"
+	@echo "  1. Register an account:  envv auth register"
+	@echo "  2. Create organization:  envv org create"
+	@echo "  3. Create project:       envv project create"
+	@echo "  4. Initialize project:   envv project init"
+	@echo "  5. Push secrets:         envv secrets push .env.development"
+	@echo ""
+	@echo "See QUICKSTART.md for detailed instructions"
+	@echo ""
